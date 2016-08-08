@@ -6,6 +6,7 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import javax.annotation.Nullable;
+import java.util.Collections;
 import java.util.Optional;
 
 /**
@@ -36,12 +37,29 @@ abstract class AbstractPredictionList {
     @Attribute(name = "stopTag")
     public abstract String getStopTag();
 
+    @Attribute(name = "dirTitleBecauseNoPredictions", required = false) @Nullable
+    protected abstract String getDirTitleBecauseNoPredictionsOrNull();
+
     @ElementList(name = "direction", inline = true, empty = false, required = false)
-    public abstract Iterable<Direction> getDirections();
+    @Value.Default
+    public Iterable<PredictionDirection> getDirections() {
+        return Collections.emptyList();
+    }
+
+    @ElementList(name = "message", inline = true, empty = false, required = false)
+    @Value.Default
+    public Iterable<PredictionMessage> getMessages() {
+        return Collections.emptyList();
+    }
 
     @Value.Auxiliary
     public Optional<String> getRouteCode() {
         return Optional.ofNullable(getRouteCodeOrNull());
+    }
+
+    @Value.Auxiliary
+    public Optional<String> getDirTitleBecauseNoPredictions() {
+        return Optional.ofNullable(getDirTitleBecauseNoPredictionsOrNull());
     }
 
 

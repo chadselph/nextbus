@@ -8,23 +8,17 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 /**
- * Transportaion Agency for Nextbus
- *
- * <body copyright="All data copyright agencies listed below and NextBus Inc 2016.">
- <agency tag="actransit" title="AC Transit" regionTitle="California-Northern"/>
- <agency tag="jhu-apl" title="APL" regionTitle="Maryland"/>
- <agency tag="art" title="Asheville Redefines Transit" regionTitle="North Carolina"/>
- <agency tag="atlanta-sc" title="Atlanta Streetcar - Beta" regionTitle="Georgia"/>
+ * Route for a transportation agency
  */
 @Value.Immutable
-@Root(strict = false)
-public abstract class AbstractAgency {
+@Root(name = "route")
+public abstract class AbstractRoute {
     @Attribute(name = "tag")
     public abstract String getTag();
+
     @Attribute(name = "title")
     public abstract String getTitle();
-    @Attribute(name = "regionTitle")
-    public abstract String getRegionTitle();
+
     @Attribute(name = "shortTitle", required = false) @Nullable
     protected abstract String getShortTitleOrNull();
 
