@@ -1,20 +1,16 @@
 package me.chadrs.nextbus;
 
-import java.util.List;
-
-import me.chadrs.nextbus.model.Agency;
-import me.chadrs.nextbus.model.Route;
-import me.chadrs.nextbus.model.RouteConfig;
 import me.chadrs.nextbus.responses.AgenciesResponse;
 import me.chadrs.nextbus.responses.PredictionResponse;
 import me.chadrs.nextbus.responses.RouteConfigResponse;
 import me.chadrs.nextbus.responses.RoutesResponse;
+import me.chadrs.nextbus.responses.VehicleLocationsResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 /**
- * Created by chad on 7/24/16.
+ * Retrofit interface into NextBus
  */
 public interface NextBusXmlFeed {
 
@@ -25,8 +21,16 @@ public interface NextBusXmlFeed {
     Call<RoutesResponse> routeList(@Query("a") final String agency);
 
     @GET("/service/publicXMLFeed?command=routeConfig")
-    Call<RouteConfigResponse> routeConfig(@Query("a") final String agency, @Query("r") final String route);
+    Call<RouteConfigResponse> routeConfig(@Query("a") final String agency,
+                                          @Query("r") final String route);
 
     @GET("/service/publicXMLFeed?command=predictions")
-    Call<PredictionResponse> predictions(@Query("a") final String agency, @Query("r") final String route, @Query("s") final String stop);
+    Call<PredictionResponse> predictions(@Query("a") final String agency,
+                                         @Query("r") final String route,
+                                         @Query("s") final String stop);
+
+    @GET("/service/publicXMLFeed?command=vehicleLocations")
+    Call<VehicleLocationsResponse> vehicleLocations(@Query("a") final String agency,
+                                                    @Query("r") final String route,
+                                                    @Query("t") final String lastTime);
 }

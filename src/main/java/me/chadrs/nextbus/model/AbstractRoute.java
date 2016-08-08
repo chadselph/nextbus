@@ -19,10 +19,10 @@ public abstract class AbstractRoute {
     @Attribute(name = "title")
     public abstract String getTitle();
 
-    @Attribute(name = "shortTitle", required = false) @Nullable
+    @Attribute(name = "shortTitle", required = false) @Nullable @Value.Auxiliary
     protected abstract String getShortTitleOrNull();
 
-    @Value.Auxiliary
+    @Value.Derived
     public Optional<String> getShortTitle() {
         return Optional.ofNullable(getShortTitleOrNull());
     }

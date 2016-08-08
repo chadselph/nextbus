@@ -25,7 +25,7 @@ abstract class AbstractPredictionList {
     @Attribute(name = "routeTag")
     public abstract String getRouteTag();
 
-    @Attribute(name = "routeCode", required = false) @Nullable
+    @Attribute(name = "routeCode", required = false) @Nullable @Value.Auxiliary
     protected abstract String getRouteCodeOrNull();
 
     @Attribute(name = "routeTitle")
@@ -37,7 +37,7 @@ abstract class AbstractPredictionList {
     @Attribute(name = "stopTag")
     public abstract String getStopTag();
 
-    @Attribute(name = "dirTitleBecauseNoPredictions", required = false) @Nullable
+    @Attribute(name = "dirTitleBecauseNoPredictions", required = false) @Nullable @Value.Auxiliary
     protected abstract String getDirTitleBecauseNoPredictionsOrNull();
 
     @ElementList(name = "direction", inline = true, empty = false, required = false)
@@ -52,12 +52,12 @@ abstract class AbstractPredictionList {
         return Collections.emptyList();
     }
 
-    @Value.Auxiliary
+    @Value.Derived
     public Optional<String> getRouteCode() {
         return Optional.ofNullable(getRouteCodeOrNull());
     }
 
-    @Value.Auxiliary
+    @Value.Derived
     public Optional<String> getDirTitleBecauseNoPredictions() {
         return Optional.ofNullable(getDirTitleBecauseNoPredictionsOrNull());
     }

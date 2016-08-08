@@ -25,10 +25,10 @@ public abstract class AbstractAgency {
     public abstract String getTitle();
     @Attribute(name = "regionTitle")
     public abstract String getRegionTitle();
-    @Attribute(name = "shortTitle", required = false) @Nullable
+    @Attribute(name = "shortTitle", required = false) @Nullable @Value.Auxiliary
     protected abstract String getShortTitleOrNull();
 
-    @Value.Auxiliary
+    @Value.Derived
     public Optional<String> getShortTitle() {
         return Optional.ofNullable(getShortTitleOrNull());
     }

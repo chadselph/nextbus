@@ -10,7 +10,7 @@ import org.simpleframework.xml.Root;
 
 @Root(strict = false, name = "route")
 @Value.Immutable
-public abstract class AbstractRouteConfig {
+abstract class AbstractRouteConfig {
 
     @ElementList(name = "stop", inline = true)
     public abstract Iterable<Stop> getStops();
