@@ -6,8 +6,6 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
-import java.util.List;
-
 /**
  * A direction of a route, such as "inbound" or "outbound"
  <direction tag="N____I_F00" title="Inbound to Caltrain/Ball Park" name="Inbound" useForUI="true">
@@ -17,9 +15,9 @@ import java.util.List;
  */
 
 @Value.Style(passAnnotations = {Attribute.class, Element.class, ElementList.class, Root.class},
-        of = "new", typeImmutable = "*", allParameters = true)
+        of = "new", typeImmutable = "*", allParameters = true, visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
-public abstract class AbstractDirection {
+abstract class AbstractDirection {
     @Attribute(name = "tag")
     public abstract String getTag();
     @Attribute(name = "title")

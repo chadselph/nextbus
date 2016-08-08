@@ -4,6 +4,9 @@ import org.immutables.value.Value;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
+import javax.annotation.Nullable;
+import java.util.Optional;
+
 /**
  * Transportaion Agency for Nextbus
  *
@@ -23,7 +26,13 @@ public abstract class AbstractAgency {
     public abstract String getTitle();
     @Attribute(name = "regionTitle")
     public abstract String getRegionTitle();
-    //@Attribute(name = "shortTitle", required = false)
-    //public abstract Optional<String> getShortTitle();
+    @Attribute(name = "shortTitle", required = false) @Nullable
+    protected abstract String getShortTitleOrNull();
+
+    @Value.Auxiliary
+    public Optional<String> getShortTitle() {
+        return Optional.ofNullable(getShortTitleOrNull());
+    }
+
 
 }

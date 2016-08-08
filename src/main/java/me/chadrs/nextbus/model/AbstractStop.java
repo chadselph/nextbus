@@ -9,9 +9,10 @@ import org.simpleframework.xml.ElementList;
  * An individual stop on a route direction.
  <stop tag="3909" title="Carl St & Cole St" lat="37.7658599" lon="-122.4497999" stopId="13909"/>
  */
-@Value.Style(passAnnotations = {ElementList.class, Attribute.class}, of = "new", typeImmutable = "*", allParameters = true)
+@Value.Style(passAnnotations = {ElementList.class, Attribute.class}, of = "new",
+        typeImmutable = "*", allParameters = true, visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
-public abstract class AbstractStop {
+abstract class AbstractStop {
     @Attribute(name = "tag")
     public abstract String getTag();
     @Attribute(name = "title")

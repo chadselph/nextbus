@@ -3,11 +3,7 @@ package me.chadrs.nextbus.model;
 
 import org.immutables.value.Value;
 import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
-import java.util.List;
 
 /**
  * <path>
@@ -28,15 +24,16 @@ import java.util.List;
  <point lat="37.76174" lon="-122.47692"/>
  </path>
  */
-@Value.Style(passAnnotations = {ElementList.class},
-        of = "new", typeImmutable = "*", allParameters = true)
+@Value.Style(passAnnotations = {ElementList.class}, of = "new",
+        typeImmutable = "*", allParameters = true, visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
 public abstract class AbstractPath {
     @ElementList(name = "point", inline = true)
     public abstract Iterable<Point> getPoints();
 
 
-    @Value.Style(passAnnotations = {Attribute.class}, of = "new", typeImmutable = "*", allParameters = true)
+    @Value.Style(passAnnotations = {Attribute.class}, of = "new", typeImmutable = "*",
+            allParameters = true, visibility = Value.Style.ImplementationVisibility.PUBLIC)
     @Value.Immutable
     static abstract class AbstractPoint {
         @Attribute(name = "lat")

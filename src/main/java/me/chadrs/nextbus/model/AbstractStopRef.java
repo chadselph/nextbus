@@ -8,9 +8,10 @@ import org.simpleframework.xml.Root;
  * Not a full stop object, just a reference to one
  */
 @Root(name = "stop")
-@Value.Style(passAnnotations = {Attribute.class}, of = "new", typeImmutable = "*", allParameters = true)
+@Value.Style(passAnnotations = {Attribute.class}, of = "new", typeImmutable = "*",
+        allParameters = true, visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
-public abstract class AbstractStopRef {
+abstract class AbstractStopRef {
 
     @Attribute(name = "tag")
     public abstract String getTag();

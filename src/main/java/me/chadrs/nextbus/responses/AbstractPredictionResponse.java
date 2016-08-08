@@ -13,9 +13,9 @@ import me.chadrs.nextbus.model.PredictionList;
  */
 @Root(name = "body")
 @Value.Style(passAnnotations = {Attribute.class, Element.class, ElementList.class, Root.class},
-        of = "new", typeImmutable = "*")
+        of = "new", typeImmutable = "*", visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
-public abstract class AbstractPredictionResponse {
+abstract class AbstractPredictionResponse {
 
     @Value.Parameter @Element(name = "predictions")
     public abstract PredictionList getPredictions();
