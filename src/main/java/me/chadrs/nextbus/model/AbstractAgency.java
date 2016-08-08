@@ -16,7 +16,6 @@ import java.util.Optional;
  <agency tag="art" title="Asheville Redefines Transit" regionTitle="North Carolina"/>
  <agency tag="atlanta-sc" title="Atlanta Streetcar - Beta" regionTitle="Georgia"/>
  */
-@Value.Style(passAnnotations = {Attribute.class, Root.class}, of = "new", typeImmutable = "*", allParameters = true)
 @Value.Immutable
 @Root(strict = false)
 public abstract class AbstractAgency {

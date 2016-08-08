@@ -9,8 +9,6 @@ import org.simpleframework.xml.Root;
  */
 
 @Root(strict = false, name = "route")
-@Value.Style(passAnnotations = {ElementList.class, Root.class}, of = "new", typeImmutable = "*", allParameters = true,
- visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
 public abstract class AbstractRouteConfig {
 

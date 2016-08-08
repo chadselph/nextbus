@@ -16,29 +16,27 @@ import java.util.Optional;
  */
 @Root(name = "prediction", strict = false)
 @Value.Immutable
-@Value.Style(passAnnotations = {Attribute.class, Root.class, ElementList.class}, of = "new", typeImmutable = "*",
-        visibility = Value.Style.ImplementationVisibility.PUBLIC, optionalAcceptNullable = true)
 abstract class AbstractPredictionList {
 
-    @Value.Parameter @Attribute(name = "agencyTitle")
+    @Attribute(name = "agencyTitle")
     public abstract String getAgencyTitle();
 
-    @Value.Parameter @Attribute(name = "routeTag")
+    @Attribute(name = "routeTag")
     public abstract String getRouteTag();
 
-    @Value.Parameter @Attribute(name = "routeCode", required = false) @Nullable
+    @Attribute(name = "routeCode", required = false) @Nullable
     protected abstract String getRouteCodeOrNull();
 
-    @Value.Parameter @Attribute(name = "routeTitle")
+    @Attribute(name = "routeTitle")
     public abstract String getRouteTitle();
 
-    @Value.Parameter @Attribute(name = "stopTitle")
+    @Attribute(name = "stopTitle")
     public abstract String getStopTitle();
 
-    @Value.Parameter @Attribute(name = "stopTag")
+    @Attribute(name = "stopTag")
     public abstract String getStopTag();
 
-    @Value.Parameter @ElementList(name = "direction", inline = true, empty = false, required = false)
+    @ElementList(name = "direction", inline = true, empty = false, required = false)
     public abstract Iterable<Direction> getDirections();
 
     @Value.Auxiliary

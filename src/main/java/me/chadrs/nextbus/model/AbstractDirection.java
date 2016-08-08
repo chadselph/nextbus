@@ -2,9 +2,7 @@ package me.chadrs.nextbus.model;
 
 import org.immutables.value.Value;
 import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
 
 /**
  * A direction of a route, such as "inbound" or "outbound"
@@ -14,8 +12,6 @@ import org.simpleframework.xml.Root;
  </direction>
  */
 
-@Value.Style(passAnnotations = {Attribute.class, Element.class, ElementList.class, Root.class},
-        of = "new", typeImmutable = "*", allParameters = true, visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
 abstract class AbstractDirection {
     @Attribute(name = "tag")

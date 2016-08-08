@@ -24,8 +24,6 @@ import org.simpleframework.xml.ElementList;
  <point lat="37.76174" lon="-122.47692"/>
  </path>
  */
-@Value.Style(passAnnotations = {ElementList.class}, of = "new",
-        typeImmutable = "*", allParameters = true, visibility = Value.Style.ImplementationVisibility.PUBLIC)
 @Value.Immutable
 public abstract class AbstractPath {
     @ElementList(name = "point", inline = true)
